@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Sample Electron App</h1>
+          <div class="form-group">
+            <textarea class="form-control" rows="20" id="dir-list" disabled></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-info" id="load-button">Load</button>
+          <button class="btn btn-info" id="save-button">Save</button>
+          <button class="btn btn-info" id="copy-button">Copy to Clipboard</button>
+          <button class="btn btn-info" id="load-from-api-button">Load from API</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
