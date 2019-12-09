@@ -1,5 +1,8 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
+const { dialog } = require('electron');
+
+require('electron-reload')(__dirname);
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -33,6 +36,36 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+
+  const options = {
+    type: 'info',
+    buttons: ['OK'],
+    title: 'Lorem ipsum',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    detail: 'Dignissimos dolorem eaque, expedita minima nisi tenetur. Aperiam labore neque nihil praesentium vel veritatis voluptas? Ab asperiores explicabo, fuga ipsa non repellat!'
+  };
+
+  const menu = Menu.buildFromTemplate([
+    {
+      label: 'Menu',
+      submenu: [
+        {
+          label:'About',
+          click() {
+            dialog.showMessageBox(null, options);
+          }
+        },
+        {
+          label:'Exit',
+          click() {
+            app.quit();
+          }
+        }
+      ]
+    }
+  ]);
+
+  Menu.setApplicationMenu(menu);
 };
 
 // This method will be called when Electron has finished
